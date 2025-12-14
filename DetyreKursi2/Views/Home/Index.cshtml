@@ -1,0 +1,35 @@
+﻿@model Kursi
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-action="Create" asp-controller="Home">
+    <h1>Kurse</h1>
+
+    <hr />
+
+    <div class="form-group">
+        <label class="form-label">Kurse</label>
+        <input asp-for="EmriKrusit" class="form-control" type="text" placeholder="Jepni emrin e kursi...." />
+        <span asp-validation-for="EmriKrusit" class="text-danger"></span>
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <label class="form-label">Pershkrimi</label>
+        <textarea asp-for="Pershkirmi" class="form-control" type="text" placeholder="Jepni pershkrmin e kursi...." rows="6"></textarea>
+        <span asp-validation-for="Pershkirmi" class="text-danger"></span>
+    </div>
+
+    <br />
+
+    <button class="btn btn-primary" type="submit">Create</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
